@@ -33,7 +33,7 @@ def main(argv: list[str] | None = None) -> int:
     rows: list[dict] = []
     print(f"{'clip':<8} {'frac':>5} {'M':>7}  (stride=1 probe)")
     hottest: dict[str, float] = {}
-    for path in CLIPS:
+    for path in clips:
         clip = list_clips(path)[0]
         best_frac, best_m = FRACS[0], -1.0
         for frac in FRACS:
@@ -52,7 +52,7 @@ def main(argv: list[str] | None = None) -> int:
         f"{'clip':<8} {'frac':>5} {'str':>3} {'cert':<16} {'|pan|':>7} {'u':>7} "
         f"{'|p-u|':>7} {'photP':>6} {'photD':>6}"
     )
-    for path in CLIPS:
+    for path in clips:
         clip = list_clips(path)[0]
         frac = hottest[clip.name]
         for stride in (1, 8):

@@ -37,8 +37,6 @@ from temporal.jitter import (  # noqa: E402
 from temporal.propagate import find_temporal_seam, seam_pred  # noqa: E402
 from viz import overlay_seam  # noqa: E402
 
-from data.paths import default_videos  # noqa: E402
-
 # lambda_t units: spherical energy per pixel of cyclic deviation from S_pred.
 DEFAULT_LAMBDAS = (0.005, 0.02, 0.08, 0.3)
 

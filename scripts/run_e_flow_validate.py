@@ -31,8 +31,6 @@ from temporal.flow import (  # noqa: E402
     summarize_clip,
 )
 
-from data.paths import default_videos  # noqa: E402
-
 
 def print_verdict(name: str, v: ClipFlowVerdict) -> None:
     print(f"=== {name}  pairs={v.n_pairs}  verdict={v.label} ===")

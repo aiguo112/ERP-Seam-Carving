@@ -25,8 +25,6 @@ from seam.carve import map_seams_to_original, reduce_width  # noqa: E402
 from temporal.jitter import compute_jitter_stats, motion_label, motion_score  # noqa: E402
 from viz import overlay_seam  # noqa: E402
 
-from data.paths import video_root  # noqa: E402
-
 
 def energy_fn_stage_b(img: np.ndarray) -> np.ndarray:
     return spherical_gradient_energy(img)

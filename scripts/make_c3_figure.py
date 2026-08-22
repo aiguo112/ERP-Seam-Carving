@@ -16,15 +16,15 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
+from data.paths import erp2_video, require_path  # noqa: E402
 from temporal.jitter import EQUATOR_BAND  # noqa: E402
 
-from data.paths import erp2_video, require_path
 METRICS = ROOT / "output" / "c3_control" / "metrics.json"
-OUT = ROOT / "paper" / "figures" / "fig_c3_control.png"
+OUT = ROOT / "output" / "fig_c3_control.png"
 
 
-def read_frame(index: int, max_width: int = 512) -> np.ndarray:
-    cap = cv2.VideoCapture(str(VIDEO))
+def read_frame(video: Path, index: int, max_width: int = 512) -> np.ndarray:
+    cap = cv2.VideoCapture(str(video))
     cap.set(cv2.CAP_PROP_POS_FRAMES, int(index))
     ok, bgr = cap.read()
     cap.release()
@@ -49,13 +49,14 @@ def equator(img: np.ndarray) -> np.ndarray:
 
 
 def main() -> int:
+    video = require_path(erp2_video(), flag="--video / ERP2_VIDEO", env="ERP2_VIDEO")
     meta = json.loads(METRICS.read_text(encoding="utf-8"))
     t0 = int(meta["t0"])
     t1 = int(meta["t1_sparse"])
     pan_c = float(meta["real_sparse"]["pan"])
-    a = read_frame(t0)
-    b1 = read_frame(t0 + 1)
-    bs = read_frame(t1)
+    a = read_frame(video, t0)
+    b1 = read_frame(video, t0 + 1)
+    bs = read_frame(video, t1)
     roll141 = np.roll(a, 141, axis=1)
     warped = np.roll(a, int(round(pan_c)), axis=1)
     resid = np.abs(equator(warped).astype(np.int16) - equator(bs).astype(np.int16))

@@ -23,13 +23,13 @@ output/
 *.mov
 *.webm
 
-# Datasets are not shipped. Point loaders at a local copy.
-data/
-datasets/
-PanoCount/
-PanoCrowd/
-CVRG-Pano/
-PAVS10K/
+# Datasets are not shipped. Point loaders at a local copy (repo-root only).
+/data/
+/datasets/
+/PanoCount/
+/PanoCrowd/
+/CVRG-Pano/
+/PAVS10K/
 
 # Editor / OS
 .DS_Store
@@ -38,23 +38,15 @@ Thumbs.db
 .vscode/
 .cursor/
 
-# LaTeX build junk (keep .tex, figures, and compiled supplementary.pdf)
-paper/*.aux
-paper/*.log
-paper/*.out
-paper/*.toc
-paper/*.bbl
-paper/*.blg
-paper/*.fdb_latexmk
-paper/*.fls
-paper/*.synctex.gz
-paper/*.synctex.gz(busy)
-paper/main_build.*
-paper/_*.png
-paper/main.pdf
-paper/main_preview.pdf
+# Main manuscript and local paper drafts stay private.
+# Public repo ships only supplementary PDF(s) under paper/.
+paper/*
+!paper/supplementary_preview.pdf
+!paper/supplementary.pdf
 
-# Local-only paper artifacts
+# Local-only paper / template junk
 paper_backup_pre_revision_*/
 Template.doc
 TemplateAMICT*.doc
+Templates.rar
+*.rar
