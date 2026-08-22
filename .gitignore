@@ -1,0 +1,60 @@
+# Secrets
+.env
+.env.local
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+
+# Local experiment dumps (images, videos, full runs)
+output/
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.webm
+
+# Datasets are not shipped. Point loaders at a local copy.
+data/
+datasets/
+PanoCount/
+PanoCrowd/
+CVRG-Pano/
+PAVS10K/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.cursor/
+
+# LaTeX build junk (keep .tex, figures, and compiled supplementary.pdf)
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.synctex.gz
+paper/*.synctex.gz(busy)
+paper/main_build.*
+paper/_*.png
+paper/main.pdf
+paper/main_preview.pdf
+
+# Local-only paper artifacts
+paper_backup_pre_revision_*/
+Template.doc
+TemplateAMICT*.doc

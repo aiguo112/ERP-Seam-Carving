@@ -1,0 +1,22 @@
+\section{Limitations}
+\label{sec:limitations}
+
+The practical gate transfers SegFormer-B0~\cite{xie2021segformer}
+trained on perspective {ADE20K}~\cite{zhou2017ade20k}. Predicted
+instances are planar eight-connected components on the
+$H\times W$ grid, and $\tau=0.20$ copies the oracle high-body
+cutoff, so gate ON can raise GT body-hit ($17/56$) and can miss
+oracle high-body images ($19/49$). The SegFormer run followed
+the oracle analysis. The $95\%$ CI~\eqref{eq:ci} describes the
+paired mean on $n=171$, including a point mass at zero on
+gate-off images.
+
+Stills use $W\le 512$ and primary $k=24$; GT body-hit is a
+constructed $12^\circ$ column, and the temporal tests bound a
+motion estimator rather than a retargeted video. Natural next
+measurements include an ERP-aware segmenter, a calibrated gate,
+viewport crops or HMD renders, and a comparison to Tsubaki and
+Sasaki, Choi \emph{et al.}, Guo
+\emph{et al.}~\cite{tsubaki2018interrupted,choi2021distortion,guo2023dinn360},
+and planar crop/warp
+retargeting~\cite{wang2008scale,pritch2009shiftmap,rubinstein2010comparative}.

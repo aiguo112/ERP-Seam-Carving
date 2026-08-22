@@ -1,0 +1,59 @@
+\section{Experimental Setup}
+\label{sec:setup}
+
+All still-image carves use cyclic seam routing~\eqref{eq:dp},
+width at most $512$, and, unless noted, $k=24$ with energy
+recomputed after each removal. Extended metric definitions and
+the SegFormer instance protocol are in the supplementary
+material.
+
+\textbf{Datasets.}
+{CVRG-Pano}~\cite{orhan2021semantic} official val+test ($n=120$)
+is the spherical-energy split (Section~\ref{sec:spherical}).
+PanoCount~\cite{arbi2025panocount} stills and head-point JSON
+cover official val+test ($n=313$), with density bins following
+the dataset: sparse $0$--$49$ ($n=72$), medium $50$--$199$
+($n=171$; the claim bin), and dense $200+$ ($n=70$). Clips ERP2,
+ERP4, and ERP5 are the motion-estimation control
+(Section~\ref{sec:sparse-sampling}).
+
+\textbf{Configurations.}
+On PanoCount, (b) is the spherical baseline
+($\lambda_g=\lambda_p=1$, $\lambda_s=0$) and (c) is always-on
+semantic energy ($\lambda_s=4$). Both use cyclic routing and are
+carved independently from the original image; the
+content-conditioned method selects (c) if~\eqref{eq:gate} fires
+and (b) otherwise. Semantic maps (GT $2^\circ$ disks, GT body
+columns, or predicted person pixels) are stated with each result.
+C1 on CVRG-Pano holds cyclic routing and $\lambda_s=0$ and
+changes only unweighted Sobel versus $E_p=E_g\cos\phi$.
+
+\textbf{Metrics.}
+Polar occupancy and routing share use the top and bottom $15\%$
+of rows, so occupancy is fixed by band height. Head-hit uses
+cyclic $|x-x_{\mathrm{head}}|\le r(\phi)$ on the head row, and
+body-hit uses a constructed $12^\circ$ meridian strip of
+half-width $2.5\,r(\phi)$. Predicted-person instance hit scores
+SegFormer components. Temporal validation uses equatorial phase
+correlation~\cite{reddy1996fft} and post-warp photometry.
+
+\textbf{Practical gate.}
+SegFormer-B0~\cite{xie2021segformer} trained on
+{ADE20K}~\cite{zhou2017ade20k} supplies a person map, with
+instances taken as planar eight-connected components on the
+$H\times W$ grid. The gate~\eqref{eq:gate} is per-image:
+$\lambda_s=4$ iff $h_{\mathrm{pred}}\ge\tau=0.20$. GT body-hit is
+an external score; the gate observes predicted instances.
+
+\textbf{Statistics.}
+For all-medium gated GT body-hit, $\delta_i$ is gated minus (b)
+on panorama $i$. The mean is $\bar{\delta}=(1/n)\sum_i\delta_i$
+with $n=171$, and the $95\%$ interval is the paired
+normal-approximation CI
+\begin{equation}
+\label{eq:ci}
+\bar{\delta}\,\pm\,1.96\cdot\mathrm{std}(\delta)/\sqrt{n}.
+\end{equation}
+Many $\delta_i$ are exactly zero (all gate-off images), so the
+mean mixes a point mass at zero with a minority of nonzero
+changes.

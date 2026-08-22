@@ -1,0 +1,35 @@
+\section{Related Work}
+\label{sec:related}
+
+Seam carving removes a connected minimum-energy
+path~\cite{avidan2007seam}. Later planar work mixed forward energy,
+cropping, and scaling~\cite{rubinstein2008improved,rubinstein2009multi},
+while warping~\cite{wolf2007nonhomogeneous,wang2008scale} and
+shift-maps~\cite{pritch2009shiftmap} redistribute distortion
+rather than delete a connected path. Class-weighted energies are
+standard on planar
+images~\cite{itti1998saliency,goferman2010context}. We use seam
+carving because a vertical ERP path is meridian-like, and we
+apply class energy only as a $\lambda_s$ term on person pixels.
+
+Viewport-adaptive streaming rate-allocates the predicted field of
+view~\cite{hosseini2016adaptive,corbillon2017viewport,corbillon2017optimal,graf2017omnidirectional,qian2018flare},
+and head traces are the usual way to locate that
+viewport~\cite{sitzmann2018saliencyvr,david2018headeye}. Those
+systems motivate shrinking unused ERP pixels. Polar stretching is
+a property of ERP
+sampling~\cite{coors2018spherenet,cheng2018cubepadding}, which we
+place in the seam cost through $E_p=E_g\cos\phi$. Prior
+$360^\circ$ carving interrupts or warps the
+cut~\cite{tsubaki2018interrupted}, weights panoramic
+resizing~\cite{choi2021distortion}, or uses carving inside object
+removal~\cite{macquarrie2015object}. Neural latitude-aware
+rescaling~\cite{guo2023dinn360} likewise changes resolution along
+a connected path. Although 360 saliency models
+exist~\cite{monroy2018salnet360}, the practical gate instead
+transfers ADE20K person pixels through
+SegFormer-B0~\cite{xie2021segformer,zhou2017ade20k}. Video carving
+couples seams across frames~\cite{rubinstein2008improved}; the
+comparisons in this paper are internal: cyclic versus spherical
+energy, always-on versus gated $\lambda_s$, and oracle GT columns
+versus a transferred segmenter.

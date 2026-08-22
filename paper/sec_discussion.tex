@@ -1,0 +1,39 @@
+\section{Discussion}
+\label{sec:discussion}
+
+Cyclic routing and spherical energy do different jobs.
+Routing~\eqref{eq:dp} is the legal neighbor set, fixed in every
+carve so that the path is a wrap-aware meridian, whereas
+spherical energy~\eqref{eq:ep} rescales step cost. On CVRG-Pano,
+with routing already cyclic, $E_p=E_g\cos\phi$ moves polar
+routing by $+0.42$\,pp (Table~\ref{tab:spherical}), and polar
+texture is uncorrelated with that $\Delta$ ($\rho=-0.01$;
+Fig.~\ref{fig:c1-scatter}). Geometry in the cost is required for
+a spherical formulation; on this outdoor set the routing change
+is small.
+
+The intended consumer of a carved ERP is a
+viewport~\cite{corbillon2017viewport,qian2018flare}. Cyclic
+routing remains legal when yaw wraps columns $0$ and $W-1$, and
+person protection concerns content that a viewport should still
+contain if it looks at
+people~\cite{sitzmann2018saliencyvr,david2018headeye}. The tables
+report polar routing share and person-hit on the ERP.
+
+Semantic energy is regime-dependent. Medium GT $2^\circ$ disks
+are already missed by spherical seams ($4.3\%$ hit), so
+always-on head-scale protection has little remaining work
+(Table~\ref{tab:head-disks}). At body scale, oracle GT columns
+give $-35.2$\,pp where the baseline already cuts people and
+$-3.4$\,pp on the complement (Table~\ref{tab:conditioned}(A)).
+The practical gate has the same shape at a smaller scale:
+$-1.55$\,pp on all medium, $-4.73$\,pp on $56$ activations
+($17/56$ increasing on GT), and $0$ on $115$ OFF images. The
+oracle bound, the gated GT body-hit, and the always-on
+predicted-person instance hit ($5.16\%$) are three different
+quantities.
+
+Phase correlation is exact on a known yaw and reports pan $0$ on
+adjacent frames, whereas sparse linspace sampling can fabricate
+unsupported apparent yaw (Section~\ref{sec:sparse-sampling});
+photometric residual is the validation criterion.
