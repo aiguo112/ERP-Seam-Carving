@@ -1,0 +1,91 @@
+{
+  "video": "F:\\Datasets\\ERP_Data\\ERP\\ERP2.mp4",
+  "t0": 1626,
+  "t1_sparse": 1858,
+  "gap_frames": 232,
+  "gap_sec": 7.741066666666667,
+  "width": 512,
+  "synth": [
+    {
+      "kind": "synth roll   0px",
+      "pan": 0.0,
+      "dense_u": 0.0,
+      "photo_raw": 0.0,
+      "photo_pan": 0.0,
+      "photo_ratio": 0.0,
+      "true_k": 0
+    },
+    {
+      "kind": "synth roll   8px",
+      "pan": 8.0,
+      "dense_u": 8.000001083710881,
+      "photo_raw": 23.088233947753906,
+      "photo_pan": 0.0,
+      "photo_ratio": 0.0,
+      "true_k": 8
+    },
+    {
+      "kind": "synth roll  16px",
+      "pan": 16.0,
+      "dense_u": 16.00000084901239,
+      "photo_raw": 28.845430374145508,
+      "photo_pan": 0.0,
+      "photo_ratio": 0.0,
+      "true_k": 16
+    },
+    {
+      "kind": "synth roll  32px",
+      "pan": 32.0,
+      "dense_u": null,
+      "photo_raw": 36.018531799316406,
+      "photo_pan": 0.0,
+      "photo_ratio": 0.0,
+      "true_k": 32
+    },
+    {
+      "kind": "synth roll  64px",
+      "pan": 64.0,
+      "dense_u": null,
+      "photo_raw": 43.04281997680664,
+      "photo_pan": 0.0,
+      "photo_ratio": 0.0,
+      "true_k": 64
+    },
+    {
+      "kind": "synth roll 128px",
+      "pan": 128.0,
+      "dense_u": null,
+      "photo_raw": 50.47132873535156,
+      "photo_pan": 0.0,
+      "photo_ratio": 0.0,
+      "true_k": 128
+    },
+    {
+      "kind": "synth roll 141px",
+      "pan": 141.0,
+      "dense_u": null,
+      "photo_raw": 51.05604553222656,
+      "photo_pan": 0.0,
+      "photo_ratio": 0.0,
+      "true_k": 141
+    }
+  ],
+  "real_stride1": {
+    "kind": "real t -> t+1",
+    "pan": 0.001603365633768694,
+    "dense_u": -0.004952173692243869,
+    "photo_raw": 0.3566184341907501,
+    "photo_pan": 0.3566184341907501,
+    "photo_ratio": 1.0
+  },
+  "real_sparse": {
+    "kind": "real t -> t+232",
+    "pan": 253.08968074407284,
+    "dense_u": 44.54310832068003,
+    "photo_raw": 56.23284912109375,
+    "photo_pan": 53.51138687133789,
+    "photo_ratio": 0.9516036926406598
+  },
+  "identity_photo_ratio": 0.0,
+  "synth_max_err_k32plus": 0.0
+}

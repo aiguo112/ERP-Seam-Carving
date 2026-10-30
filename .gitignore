@@ -10,6 +10,7 @@ __pycache__/
 *$py.class
 *.egg-info/
 .pytest_cache/
+_pytest_tmp/
 .mypy_cache/
 .ruff_cache/
 dist/
@@ -50,3 +51,12 @@ Template.doc
 TemplateAMICT*.doc
 Templates.rar
 *.rar
+
+# Camera-ready manuscript and submission build artefacts stay private.
+# (These live at the repo root next to the code; never commit them.)
+AMICT2026_*
+AMICT_template.docx
+AMICT2027_*
+build_amict.py
+*.docx
+*.doc

@@ -1,0 +1,49 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "Content-Conditioned Cyclic Seam Carving for Equirectangular Panoramas"
+type: conference-paper
+authors:
+  - family-names: Ahmad
+    given-names: Talal
+    affiliation: "Department of Computer Engineering, Bahauddin Zakariya University, Multan, Pakistan"
+    email: heyytalall@gmail.com
+  - family-names: Abid
+    given-names: Husnain
+    affiliation: "Department of Computer Science, University of South Wales, United Kingdom"
+    email: husnainabid704@gmail.com
+  - family-names: Arbi
+    given-names: Ghulam
+    affiliation: "Department of Computer Science, University of Science and Technology of China, Hefei, China"
+    email: arbi@mail.ustc.edu.cn
+conference:
+  name: "The 3rd International Conference on Advances in Machine Intelligence and Cybersecurity Technologies (AMICT 2026)"
+  location: "Labuan, Malaysia"
+  start: 2026-11-12
+  end: 2026-11-13
+year: 2026
+abstract: >-
+  Equirectangular 360-degree video is stored at 4K-8K for the full sphere even
+  though a viewer sees only a viewport, so content-aware retargeting can shrink
+  that raster before any viewport is extracted. On crowd panoramas, cyclic
+  routing, spherical energy, and semantic protection help only in specific
+  regimes: a cyclic spherical baseline already misses most compact heads, and
+  always-on person protection is therefore wasted on most scenes. We propose
+  content-conditioned cyclic seam carving, which applies cyclic routing and
+  spherical energy on every image and adds semantic energy only when a
+  SegFormer-B0 estimate of baseline person-hit risk is high. On PanoCount
+  medium-density val+test (171 images) the gate fires on 56 images and lowers a
+  ground-truth body-hit proxy from 12.59% to 11.04% (-1.55 pp, 95% CI
+  [-2.75, -0.35]); on that subset the change is -4.73 pp (17/56 increase).
+  An oracle that sees ground-truth columns reaches -35.2 pp on a high-risk
+  subset, and always-on predicted-person energy lowers instance hit from 18.68%
+  to 5.16%. Sparse temporal sampling can fabricate unsupported apparent yaw.
+keywords:
+  - equirectangular panorama
+  - seam carving
+  - 360-degree video
+  - viewport
+  - semantic protection
+  - cyclic routing
+  - content-aware retargeting
+  - crowd panoramas
+license: MIT
